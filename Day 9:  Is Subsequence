@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        char[] sub = s.toCharArray();
+        char[] complete = t.toCharArray();
+        
+        boolean answer=false;
+        
+        if(sub.length > complete.length)
+            return false;
+        
+        if(sub.length==0)
+            return true;
+        
+        int subIndex = 0;
+        
+        for(int i=0;i<complete.length && subIndex < sub.length;i++){
+            if(complete[i]==sub[subIndex]){
+                subIndex++;
+            }
+        }
+        
+        if(subIndex == sub.length)
+            answer = true;
+        else
+            answer = false;
+        
+        return answer;
+    }
+}
